@@ -37,11 +37,20 @@ class BinarySearchTree{
    
    
    
-   /*
-   pre-order traversal
-   */
+   /**
+    * Performs a pre-order traversal of a BST starting from the given node "root"
+    *
+    * @param root The root node of the tree to traverse in pre-order
+    */
    public void preOrderTraversal(Node root){
-      //implement me
+      if (root == null) {
+         return;
+      } else {
+         System.out.println(root.value);  // First this node
+      }
+      // Then left subtree, followed by right subtree
+      preOrderTraversal(root.left);
+      preOrderTraversal(root.right);
    }
 
    
