@@ -81,7 +81,6 @@ class BinarySearchTree{
       if (root == null){
          return;
       } else {
-
          // Left, right, then current
          postOrderTraversal(root.left);
          postOrderTraversal(root.right);
@@ -91,13 +90,28 @@ class BinarySearchTree{
    
    
    
-   /*
-   a method to find the node in the tree
-   with a specific value
-   */
+
+   /**
+    * Searches a BST for a given key
+    *
+    * @param root The node of the BST to begin the search at
+    * @param key The key to search for
+    *
+    */
+
    public boolean find(Node root, int key){
-	  //implement me
-      return false;           
+
+      if (root == null)
+         return false;
+
+      if (root.value == key)
+         return true;
+
+      if (root.value < key)
+         return find(root.right, key);
+
+      else
+         return find (root.left, key);
    }
    
    
