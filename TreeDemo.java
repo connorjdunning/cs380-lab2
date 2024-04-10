@@ -46,7 +46,7 @@ class BinarySearchTree{
       if (root == null) {
          return;
       } else {
-         System.out.println(root.value);  // First this node
+         System.out.println(root.value + ", ");  // First this node
       }
       // Then left subtree, followed by right subtree
       preOrderTraversal(root.left);
@@ -66,18 +66,27 @@ class BinarySearchTree{
       } else {
          inOrderTraversal(root.left); // First left subtree
       }
-      // Then print this, and follow the right subtree
-      System.out.println(root.value);
+      // Then print current, and follow the right subtree
+      System.out.println(root.value + ", ");
       inOrderTraversal(root.right);
    }
    
    
-   
-   /*
-   post-order traversal
-   */
+   /**
+    * Performs post-order traversal of a BST starting from the given node "root"
+    *
+    * @param root The node of the tree to begin the traversal at
+    */
    public void postOrderTraversal(Node root){
-      //implement me
+      if (root == null){
+         return;
+      } else {
+
+         // Left, right, then current
+         postOrderTraversal(root.left);
+         postOrderTraversal(root.right);
+         System.out.println(root.value + ", ");
+      }
    }
    
    
