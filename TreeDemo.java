@@ -115,13 +115,18 @@ class BinarySearchTree{
    }
    
    
-   
-   /*
-   a method to find the node in the tree
-   with a smallest key
-   */
+   /**
+    * Finds the minimium node in a BST
+    *
+    * @param root The node whose subtree we find the minimium value of
+    */
    public int getMin(Node root){
-      //implement me
+
+      // Go left until you can't, then return the value
+      if (root.left == null)
+         return root.value;
+      else
+         return getMin(root.left);
    }
   
   
