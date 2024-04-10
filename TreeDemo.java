@@ -40,7 +40,7 @@ class BinarySearchTree{
    /**
     * Performs a pre-order traversal of a BST starting from the given node "root"
     *
-    * @param root Thenode of the tree to begin the traversal at
+    * @param root The node of the tree to begin the traversal at
     */
    public void preOrderTraversal(Node root){
       if (root == null) {
@@ -121,7 +121,6 @@ class BinarySearchTree{
     * @param root The node whose subtree we find the minimium value of
     */
    public int getMin(Node root){
-
       // Go left until you can't, then return the value
       if (root.left == null)
          return root.value;
@@ -131,12 +130,17 @@ class BinarySearchTree{
   
   
   
-   /*
-   a method to find the node in the tree
-   with a largest key
-   */
+   /**
+    * Finds the maximium node in a BST
+    *
+    * @param root The node whose subtree we find the Maximium value of
+    */
    public int getMax(Node root){
-	  //implement me
+      // Go right until you can't, then return the value
+      if (root.right == null)
+         return root.value;
+      else
+         return getMin(root.right);
    }
    
    
