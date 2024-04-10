@@ -7,18 +7,33 @@ class Node{
       left = null;
       right = null;
    }
-
 }
 
 class BinarySearchTree{
 
    Node root;
-   
-   
+
+   /**
+    * Constructor Initializes the root node
+    *
+    */
+   BinarySearchTree() {
+      root = null;
+   }
+
+   /**
+    * The public function to insert a key into the BST.
+    *
+    * @param value The integer value of the key to insert
+    */
+   public void insert(int value) {
+      root = insertRecursive(root, value);
+   }
+
    /*
    recursive insert method
    */
-   public Node insert(Node root, int value){
+   private Node insertRecursive(Node root, int value){
       //base case
       if(root == null){
          root = new Node(value);
@@ -27,9 +42,9 @@ class BinarySearchTree{
       
       //recursive step
       if(value < root.value){
-         root.left = insert(root.left, value); 
+         root.left = insertRecursive(root.left, value);
       }else{
-         root.right = insert(root.right, value);
+         root.right = insertRecursive(root.right, value);
       }
       
       return root;
@@ -46,15 +61,13 @@ class BinarySearchTree{
       if (root == null) {
          return;
       } else {
-         System.out.println(root.value + ", ");  // First this node
+         System.out.print(root.value + ", ");  // First this node
       }
       // Then left subtree, followed by right subtree
       preOrderTraversal(root.left);
       preOrderTraversal(root.right);
    }
 
-   
-   
    /**
     * Performs in-order traversal of a BST starting from the given node "root"
     *
@@ -67,11 +80,10 @@ class BinarySearchTree{
          inOrderTraversal(root.left); // First left subtree
       }
       // Then print current, and follow the right subtree
-      System.out.println(root.value + ", ");
+      System.out.print(root.value + ", ");
       inOrderTraversal(root.right);
    }
-   
-   
+
    /**
     * Performs post-order traversal of a BST starting from the given node "root"
     *
@@ -84,12 +96,9 @@ class BinarySearchTree{
          // Left, right, then current
          postOrderTraversal(root.left);
          postOrderTraversal(root.right);
-         System.out.println(root.value + ", ");
+         System.out.print(root.value + ", ");
       }
    }
-   
-   
-   
 
    /**
     * Searches a BST for a given key
@@ -113,8 +122,7 @@ class BinarySearchTree{
       else
          return find (root.left, key);
    }
-   
-   
+
    /**
     * Finds the minimium node in a BST
     *
@@ -127,9 +135,7 @@ class BinarySearchTree{
       else
          return getMin(root.left);
    }
-  
-  
-  
+
    /**
     * Finds the maximium node in a BST
     *
@@ -140,11 +146,9 @@ class BinarySearchTree{
       if (root.right == null)
          return root.value;
       else
-         return getMin(root.right);
+         return getMax(root.right);
    }
-   
-   
-   
+
    /*
    this method will not compile until getMax
    is implemented
@@ -176,12 +180,7 @@ class BinarySearchTree{
       }
       return root;  
    }
-   
-   
-   
 }
-
-
 
 public class TreeDemo{
    public static void main(String[] args){
@@ -197,6 +196,5 @@ public class TreeDemo{
       t1.inOrderTraversal(t1.root);
       System.out.println();
            
-      
-   }  
+   }
 }
