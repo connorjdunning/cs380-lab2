@@ -40,7 +40,7 @@ class BinarySearchTree{
    /**
     * Performs a pre-order traversal of a BST starting from the given node "root"
     *
-    * @param root The root node of the tree to traverse in pre-order
+    * @param root Thenode of the tree to begin the traversal at
     */
    public void preOrderTraversal(Node root){
       if (root == null) {
@@ -55,11 +55,20 @@ class BinarySearchTree{
 
    
    
-   /*
-   in-order traversal
-   */
+   /**
+    * Performs in-order traversal of a BST starting from the given node "root"
+    *
+    * @param root The node of the tree to begin the traversal at
+    */
    public void inOrderTraversal(Node root){
-      //implement me
+      if (root == null) {
+         return;
+      } else {
+         inOrderTraversal(root.left); // First left subtree
+      }
+      // Then print this, and follow the right subtree
+      System.out.println(root.value);
+      inOrderTraversal(root.right);
    }
    
    
